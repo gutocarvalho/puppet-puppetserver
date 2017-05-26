@@ -1,0 +1,5 @@
+# Manged by puppet - do not modify
+
+[main]
+server_urls  = https://<%= $puppetdb_server %>:<%= $puppetdb_port %>
+soft_write_failure = true
