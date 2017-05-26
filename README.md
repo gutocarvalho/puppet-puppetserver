@@ -36,7 +36,7 @@ hierarchy:
 
 After that, you can use this module without problems.
 
-## How to use
+## How to use it
 
 ### Installation
 
@@ -51,16 +51,16 @@ After that, you can use this module without problems.
 
 ```
 class { 'puppetserver':
-  certname         => $trusted[certname],
-  version          => '2.7.2-1.el7',
-  autosign         => true,
-  java_args        => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version    => '1.10.1-1.el7',
-  puppetdb         => true,
-  puppetdb_version => '4.4.0-1.el7'
-  puppetdb_server  => $trusted[certname],
-  puppetdb_port    => '8081',
-
+  certname           => $trusted[certname],
+  version            => '2.7.2-1.el7',
+  autosign           => true,
+  java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
+  agent_version      => '1.10.1-1.el7',
+  puppetdb           => true,
+  puppetdb_version   => '4.4.0-1.el7'
+  puppetdb_server    => $trusted[certname],
+  puppetdb_port      => '8081',
+  system_config_path => '/etc/sysconfig'
 }
 ```
 ### Classes
@@ -84,7 +84,7 @@ puppetserver::certname: "%{trusted.certname}"
 puppetserver::version: '2.7.2-1.el7'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2 -XX:MaxPermSize=256m'
+puppetserver::system_config_path: '/etc/sysconfig'
 
 puppetserver::agent_version: '1.10.1-1.el7'
-
 ```
