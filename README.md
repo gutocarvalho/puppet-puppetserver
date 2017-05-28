@@ -1,8 +1,5 @@
-[![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver)
+[![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver) [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate) [![Test Coverage](https://codeclimate.com/github/codeclimate/codeclimate/badges/coverage.svg)](https://codeclimate.com/github/gutocarvalho/puppet-puppetserver/coverage) ![License](https://img.shields.io/badge/license-Apache%202-blue.svg)
 
-[![Test Coverage](https://codeclimate.com/github/gutocarvalho/puppet-puppetserver/badges/coverage.svg)](https://codeclimate.com/github/codeclimate/codeclimate/coverage)
-
-[![Coverage Status](https://coveralls.io/repos/github/gutocarvalho/puppet-puppetserver/badge.svg?branch=master)](https://coveralls.io/github/gutocarvalho/puppet-puppetserver?branch=master)
 
 ## Puppetserver Module
 
