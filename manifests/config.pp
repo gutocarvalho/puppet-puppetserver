@@ -41,11 +41,12 @@ class puppetserver::config {
       notify  => Service['puppetserver']
     }
     file { '/etc/puppetlabs/puppet/puppetdb.conf':
-      content  => epp('puppetserver/puppetdb.conf.epp', {
+      content => epp('puppetserver/puppetdb.conf.epp',
+        {
         puppetdb_server => $puppetserver::puppetdb_server,
         puppetdb_port   => $puppetserver::puppetdb_port,
         }),
-        notify => Service['puppetserver']
+      notify  => Service['puppetserver']
     }
   }
 }
