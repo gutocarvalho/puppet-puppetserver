@@ -14,9 +14,13 @@ This is a very simple module, for development and test purposes.
 
 ## Requirements
 
-- Puppet >= 4.10
-- Hiera >= 5
+This module was developed using
+
+- Puppet 4.10
+- Hiera 5
 - CentOS 7
+- Vagrant 1.9
+  - box: gutocarvalho/centos7x64
 
 ### Hiera 5
 
@@ -46,8 +50,14 @@ After that, you can use this module without problems.
 
 ### Installation
 
+via git
+
     cd /etc/puppetlabs/code/environment/production/modules
     git clone https://github.com/gutocarvalho/puppet-puppetserver.git puppetserver
+
+via puppet
+
+    puppet module install gutocarvalho/puppetserver
 
 ### How to use (the fast way)
 
