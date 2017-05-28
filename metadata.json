@@ -12,7 +12,7 @@
     {
       "name": "puppet",
       "version_requirement": ">=4.10.1"
-    },
+    }
    ],
      "operatingsystem_support": [
        {
