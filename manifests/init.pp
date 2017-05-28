@@ -4,12 +4,12 @@ class puppetserver(
   String $version,
   Boolean $autosign,
   String $agent_version,
+  String $java_args,
+  String $system_config_path,
   Boolean $puppetdb,
   String $puppetdb_version,
   String $puppetdb_server,
   String $puppetdb_port,
-  String $java_args,
-  String $system_config_path,
   ) {
 
   include puppetserver::install
