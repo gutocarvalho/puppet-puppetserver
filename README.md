@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver)
 
+[![Test Coverage](https://codeclimate.com/github/gutocarvalho/puppet-puppetserver/badges/coverage.svg)](https://codeclimate.com/github/codeclimate/codeclimate/coverage)
+
+[![Coverage Status](https://coveralls.io/repos/github/gutocarvalho/puppet-puppetserver/badge.svg?branch=master)](https://coveralls.io/github/gutocarvalho/puppet-puppetserver?branch=master)
+
 ## Puppetserver Module
 
 This module will install puppetserver in your system.
