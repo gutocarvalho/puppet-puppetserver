@@ -4,7 +4,7 @@ This module will install puppetserver in your system.
 
 This module can configure puppetdb integration.
 
-This is a very simple module, for development purposes.
+This is a very simple module, for development and test purposes.
 
 ## Requirements
 
@@ -40,8 +40,8 @@ After that, you can use this module without problems.
 
 ### Installation
 
-    cd /etc/puppetlabs/code/environment/production
-    git clone $url/puppetservert.git puppetserver
+    cd /etc/puppetlabs/code/environment/production/modules
+    git clone https://github.com/gutocarvalho/puppet-puppetserver.git puppetserver
 
 ### How to use (the fast way)
 
