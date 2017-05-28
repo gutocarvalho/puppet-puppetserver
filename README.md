@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver) ![License](https://img.shields.io/badge/license-Apache%202-blue.svg)
+[![GitHub version](https://badge.fury.io/gh/gutocarvalho%2Fpuppet-puppetagent.svg)](https://badge.fury.io/gh/gutocarvalho%22Fpuppet-puppetagent)
 
 ## Puppetserver Module
 
