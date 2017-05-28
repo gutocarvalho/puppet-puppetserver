@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver)
+
 ## Puppetserver Module
 
 This module will install puppetserver in your system.
