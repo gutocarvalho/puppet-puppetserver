@@ -11,7 +11,6 @@ class puppetserver::config {
     changes => [ "set main/server ${puppetserver::certname}", ],
   }
 
-
   augeas {'java_args':
     context => "${puppetserver::system_config_path}/puppetserver",
     changes => [ "set JAVA_ARGS ${puppetserver::java_args}", ],
@@ -37,14 +36,10 @@ class puppetserver::config {
       ],
       notify  => Service['puppetserver']
     }
-  }
-
-  if $puppetserver::puppetdb {
     file { '/etc/puppetlabs/puppet/routes.yaml':
       content => epp('puppetserver/routes.yaml.epp'),
       notify  => Service['puppetserver']
     }
-
     file { '/etc/puppetlabs/puppet/puppetdb.conf':
       content  => epp('puppetserver/puppetdb.conf.epp', {
         puppetdb_server => $puppetserver::puppetdb_server,
