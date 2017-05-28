@@ -18,6 +18,7 @@ script:
   - bundle exec rake syntax
   - bundle exec rake lint
   - bundle exec rake spec
+  - bundle exec rake metadata_lint
 branches:
   only:
   - master
