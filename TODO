@@ -1,8 +1,7 @@
 # TODO
 
-- Add git hooks pre-commit from training vm
-- Add config for Debian and Ubuntu in Hiera
+- Add git hooks pre-commit with linters from puppet training vm
 - Add Serverspec tests
 - Add Beaker tests
-- Add Release file
+- Add 'Release Notes' file
 - Add Contributors file
