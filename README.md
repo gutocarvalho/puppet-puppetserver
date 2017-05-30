@@ -308,15 +308,10 @@ defaults:
 hierarchy:
   - name: "OSes"
     paths:
+     - "oses/distro/%{facts.os.name}/%{facts.os.release.major}.yaml"
      - "oses/family/%{facts.os.family}.yaml"
-     - "oses/operatingsystem/%{os.distro.id}/%{os.release.major}"
 
   - name: "common"
     path: "common.yaml"
-
-# hierarchy order example
-  # os/family/redhat.yaml
-  # os/operatingsystem/centos/version_7.yaml
-  # common.yaml
 
 ```
