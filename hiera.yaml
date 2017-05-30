@@ -4,8 +4,15 @@ defaults:
   datadir: data
   data_hash: yaml_data
 hierarchy:
-  - name: "OS family"
-    path: "oses/%{facts.os.family}.yaml"
+  - name: "OSes"
+    paths:
+     - "oses/distro/%{facts.os.name}/%{facts.os.release.major}.yaml"
+     - "oses/family/%{facts.os.family}.yaml"
 
   - name: "common"
     path: "common.yaml"
+
+# hierarchy order example
+  # os/family/redhat.yaml
+  # os/operatingsystem/centos/version_7.yaml
+  # common.yaml

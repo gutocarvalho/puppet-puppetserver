@@ -1,0 +1,3 @@
+puppetserver::system_config_path: '/files/etc/default'
+puppetserver::version: '2.7.2-1puppetlabs1'
+puppetserver::puppetdb_version: '4.4.0-1puppetlabs1'
