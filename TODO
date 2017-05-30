@@ -1,0 +1,8 @@
+# TODO
+
+- Add git hooks pre-commit from training vm
+- Add config for Debian and Ubuntu in Hiera
+- Add Serverspec tests
+- Add Beaker tests
+- Add Release file
+- Add Contributors file
