@@ -1,0 +1,1 @@
+puppetserver::system_config_path: '/files/etc/sysconfig'

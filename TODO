@@ -1,0 +1,7 @@
+# TODO
+
+- Add git hooks pre-commit with linters from puppet training vm
+- Add Serverspec tests
+- Add Beaker tests
+- Add 'Release Notes' file
+- Add Contributors file
