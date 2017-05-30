@@ -5,4 +5,4 @@ require 'metadata-json-lint/rake_task'
 
 PuppetLint.configuration.send("disable_80chars")
 
-task :integration => [:spec, :lint, :syntax, :metadata_lint]
+task :integration => [:syntax, :lint, :metadata_lint, :spec]
