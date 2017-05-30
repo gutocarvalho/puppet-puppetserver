@@ -29,6 +29,5 @@
        }
       ],
      "dependencies": [
-     ],
-     "data_provider": "hiera"
+     ]
    }
