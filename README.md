@@ -160,7 +160,7 @@ class { 'puppetserver':
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.1-1precise',
+  agent_version      => '1.10.1-1trusty',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
