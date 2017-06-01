@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver) ![License](https://img.shields.io/badge/license-Apache%202-blue.svg)
+[![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg) ![Version](https://img.shields.io/puppetforge/v/gutocarvalho/puppetserver.svg) ![Downloads](https://img.shields.io/puppetforge/dt/gutocarvalho/puppetserver.svg)
 
 ### Table of contents
 
@@ -9,7 +9,6 @@
 5. Requeriments
 6. Installation
 7. Usage
-
 
 ## 1. Overview
 
