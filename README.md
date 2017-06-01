@@ -7,9 +7,8 @@
 3. OSes Supported
 4. PreReq
 5. Requeriments
-6. How to use it
-
-
+6. Installation
+7. Usage
 
 
 ## 1. Overview
@@ -63,11 +62,20 @@ You should configure your /etc/hosts properly.
 
 Unfortunately I intent to use Hiera v5 from start, so, yes, Hiera v3 is not compatible with this module.
 
-### 5.1 Hiera Upgrade
+### 5.1 Upgrade your Puppet Agent
+
+Upgrade your puppet agent to >= 4.10, this is necessary to use Hiera v5 features.
+
+    # yum install puppet-agent (redhat family)
+    # apt-get update && apt-get install puppet-agent (debian family)
+
+You need the PC1 repo configured to install these packages.
+
+### 5.2 Upgrade your Hiera config
 
 You need to upgrade your hiera config, even with Puppet >= 4.10.
 
-#### 5.1.1 Agent config: /etc/puppetlabs/puppet/hiera.yaml
+    /etc/puppetlabs/puppet/hiera.yaml
 
 See the example bellow and upgrade your hiera config.
 
@@ -88,20 +96,7 @@ hierarchy:
 
 After that, you can use this module without problems.
 
-## 6. How to use it
-
-### 6.1 Installation
-
-#### 6.1.1 Upgrade your Puppet Agent
-
-Upgrade your puppet agent to >= 4.10, this is necessary to use Hiera v5 features.
-
-    # yum install puppet-agent (redhat family)
-    # apt-get update && apt-get install puppet-agent (debian family)
-
-You need the PC1 repo configured to install these packages.
-
-#### 6.1.2 Installing the module
+## 6. Installation
 
 via git
 
@@ -112,13 +107,15 @@ via puppet
 
     # puppet module install gutocarvalho/puppetserver
 
-### 6.2 How to use (the fast way)
+## 7. Usage
+
+### 7.1 Quick use
 
     puppet apply -e "include puppetserver"
 
-### 6.3 How to use with parameters
+### 7.2 Using with parameters
 
-#### 6.3.1 Example in EL 7
+#### 7.3.1 Example in EL 7
 
 ```
 class { 'puppetserver':
@@ -135,7 +132,7 @@ class { 'puppetserver':
 }
 ```
 
-#### 6.3.2 Example in EL 6
+#### 7.3.2 Example in EL 6
 
 ```
 class { 'puppetserver':
@@ -152,7 +149,7 @@ class { 'puppetserver':
 }
 ```
 
-#### 6.3.3 Example in Ubuntu 14.04
+#### 7.3.3 Example in Ubuntu 14.04
 
 ```
 class { 'puppetserver':
@@ -169,7 +166,7 @@ class { 'puppetserver':
 }
 ```
 
-#### 6.3.4 Example in Ubuntu 16.04
+#### 7.3.4 Example in Ubuntu 16.04
 
 ```
 class { 'puppetserver':
@@ -186,7 +183,7 @@ class { 'puppetserver':
 }
 ```
 
-#### 6.3.5 Example in Debian 7
+#### 7.3.5 Example in Debian 7
 
 ```
 class { 'puppetserver':
@@ -203,8 +200,7 @@ class { 'puppetserver':
 }
 ```
 
-
-#### 6.3.6 Example in Debian 8
+#### 7.3.6 Example in Debian 8
 
 ```
 class { 'puppetserver':
@@ -221,7 +217,7 @@ class { 'puppetserver':
 }
 ```
 
-### 6.4 Classes
+### 8.4 Classes
 
 ```
 puppetserver
@@ -230,51 +226,49 @@ puppetserver::config (private)
 puppetserver::service (private)
 ```
 
-### 6.5 Parameters
+### 8.5 Parameters
 
-#### 6.5.1 certname
-
-Type: String
-
-#### 6.5.2 version
+#### 8.5.1 certname
 
 Type: String
 
-#### 6.5.3 autosign
+#### 8.5.2 version
+
+Type: String
+
+#### 8.5.3 autosign
 
 Type: Boolean
 
-#### 6.5.4 java_args
+#### 8.5.4 java_args
 
 Type: String
 
-#### 6.5.5 agent_version
+#### 8.5.5 agent_version
 
 Type: String
 
-#### 6.6.6 puppetdb
+#### 8.6.6 puppetdb
 
 Type: Boolean
 
-#### 6.6.7 puppetdb_version
+#### 8.6.7 puppetdb_version
 
 Type: String
 
-#### 6.6.8 puppetdb_server
+#### 8.6.8 puppetdb_server
 
 Type: String
 
-#### 6.6.9 puppetdb_port
+#### 8.6.9 puppetdb_port
 
 Type: String
 
-#### 6.6.10 system_config_path
+#### 8.6.10 system_config_path
 
 Type: String
 
-### 6.7 Hiera Extra Info
-
-#### 6.7.1 Hiera Keys
+### 8.7 Hiera Keys
 
 ```
 puppetserver::puppetdb: false
@@ -291,11 +285,11 @@ puppetserver::system_config_path: '/etc/sysconfig'
 puppetserver::agent_version: '1.10.1-1.el7'
 ```
 
-### 6.8 Hiera module config
+### 8.8 Hiera module config
 
-This is the configuration for Hiera 5 inside the module.
+This is the Hiera v5 configuration inside the module.
 
-This module does not have params class, everything is under hiera 5.
+This module does not have params class, everything is under hiera v5.
 
 ```
 ---
@@ -312,4 +306,17 @@ hierarchy:
   - name: "common"
     path: "common.yaml"
 
+```
+
+This is an example of files under modules/puppetserver/data
+
+```
+oses/family/RedHat.yaml
+oses/family/Debian.yaml
+oses/distro/CentOS/7.yaml
+oses/distro/CentOS/8.yaml
+oses/distro/Ubuntu/14.04.yaml
+oses/distro/Ubuntu/16.04.yaml
+oses/distro/Debian/7.yaml
+oses/distro/Debian/8.yaml
 ```
