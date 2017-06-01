@@ -1,6 +1,6 @@
 {
      "name": "gutocarvalho-puppetserver",
-     "version": "1.0.7",
+     "version": "1.0.8",
      "author": "Guto Carvalho",
      "license": "Apache-2.0",
      "summary": "A simple Puppet module for puppetserver",
