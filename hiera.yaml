@@ -11,8 +11,3 @@ hierarchy:
 
   - name: "common"
     path: "common.yaml"
-
-# hierarchy order example
-  # os/family/redhat.yaml
-  # os/operatingsystem/centos/version_7.yaml
-  # common.yaml
