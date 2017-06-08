@@ -21,7 +21,7 @@ class puppetserver(
   Boolean $puppetdb,
   String $puppetdb_version,
   String $puppetdb_server,
-  String $puppetdb_port,
+  Integer[1024,65535] $puppetdb_port,
   ) {
 
   include puppetserver::install

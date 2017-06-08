@@ -1,6 +1,6 @@
 puppetserver::puppetdb: false
 puppetserver::puppetdb_server: "%{::ipaddress}"
-puppetserver::puppetdb_port: "8081"
+puppetserver::puppetdb_port: 8081
 puppetserver::puppetdb_version: 'installed'
 
 puppetserver::certname: "%{trusted.certname}"
