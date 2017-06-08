@@ -8,6 +8,9 @@ gem 'rspec'
 gem 'rspec-puppet'
 gem 'puppetlabs_spec_helper'
 
+gem 'beaker'
+gem 'beaker-rspec'
+
 gem 'puppet-syntax'
 gem 'puppet-lint'
 gem 'metadata-json-lint'
