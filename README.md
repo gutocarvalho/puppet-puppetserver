@@ -27,7 +27,7 @@ The main objective is to install puppetserver with minimal intervention in the d
 Augeas resource type is used to change parameters inside the puppet.conf.
 
 
-## Supported Plataforms
+## Supported Platforms
 
 This module was tested under these platforms
 
@@ -127,7 +127,7 @@ class { 'puppetserver':
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el7'
   puppetdb_server    => $trusted[certname],
-  puppetdb_port      => '8081',
+  puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
 }
 ```
@@ -144,7 +144,7 @@ class { 'puppetserver':
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el6'
   puppetdb_server    => $trusted[certname],
-  puppetdb_port      => '8081',
+  puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
 }
 ```
@@ -161,7 +161,7 @@ class { 'puppetserver':
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
-  puppetdb_port      => '8081',
+  puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
 ```
@@ -178,7 +178,7 @@ class { 'puppetserver':
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
-  puppetdb_port      => '8081',
+  puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
 ```
@@ -195,7 +195,7 @@ class { 'puppetserver':
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
-  puppetdb_port      => '8081',
+  puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
 ```
@@ -212,7 +212,7 @@ class { 'puppetserver':
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
-  puppetdb_port      => '8081',
+  puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
 ```
@@ -275,7 +275,7 @@ Type: String
 ```
 puppetserver::puppetdb: false
 puppetserver::puppetdb_server: "%{::ipaddress}"
-puppetserver::puppetdb_port: "8081"
+puppetserver::puppetdb_port: 8081
 puppetserver::puppetdb_version: '4.4.0-1.el7'
 
 puppetserver::certname: "%{trusted.certname}"
