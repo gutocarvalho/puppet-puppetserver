@@ -4,7 +4,7 @@ HOSTS:
       - agent
       - default
     platform: debian-7-amd64
-    box: puppetlabs/centos-7.8-64-nocm
+    box: puppetlabs/debian-7.8-64-nocm
     hypervisor: vagrant
     vagrant_memsize: 2600
 

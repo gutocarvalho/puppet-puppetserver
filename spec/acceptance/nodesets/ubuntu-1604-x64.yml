@@ -4,7 +4,7 @@ HOSTS:
       - agent
       - default
     platform: ubuntu-16.04-amd64
-    box: puppetlabs/centos-16.04-64-nocm
+    box: puppetlabs/ubuntu-16.04-64-nocm
     hypervisor: vagrant
     vagrant_memsize: 2600
 
