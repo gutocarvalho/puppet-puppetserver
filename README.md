@@ -6,7 +6,7 @@
 
 1. [Overview](#overview)
 3. [Supported Platforms](#supported-platforms)
-4. [Requeriments](#requirements)
+4. [Requirements](#requirements)
 5. [Installation](#installation)
 6. [Usage](#usage)
 7. [References](#references)
@@ -25,7 +25,6 @@ Yes, you can use it in production, but it is a simple module, you may miss some 
 The main objective is to install puppetserver with minimal intervention in the default files.
 
 Augeas resource type is used to change parameters inside the puppet.conf.
-
 
 ## Supported Platforms
 
@@ -107,6 +106,10 @@ via puppet
 
     # puppet module install gutocarvalho/puppetserver
 
+via puppetfile
+
+    mod 'gutocarvalho-puppetserver', '1.0.10'
+
 ## Usage
 
 ### Quick run
@@ -123,7 +126,7 @@ class { 'puppetserver':
   version            => '2.7.2-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.1-1.el7',
+  agent_version      => '1.10.2-1.el7',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el7'
   puppetdb_server    => $trusted[certname],
@@ -140,7 +143,7 @@ class { 'puppetserver':
   version            => '2.7.2-1.el6',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.1-1.el6',
+  agent_version      => '1.10.2-1.el6',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el6'
   puppetdb_server    => $trusted[certname],
@@ -157,7 +160,7 @@ class { 'puppetserver':
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.1-1trusty',
+  agent_version      => '1.10.2-1trusty',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
@@ -174,7 +177,7 @@ class { 'puppetserver':
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.1-1xenial',
+  agent_version      => '1.10.2-1xenial',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
@@ -191,7 +194,7 @@ class { 'puppetserver':
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.1-1wheezy',
+  agent_version      => '1.10.2-1wheezy',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
@@ -208,7 +211,7 @@ class { 'puppetserver':
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.1-1jessie',
+  agent_version      => '1.10.2-1jessie',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
@@ -264,7 +267,7 @@ Type: String
 
 #### `puppetdb_port`
 
-Type: String
+Type: Integer
 
 #### `system_config_path`
 
@@ -325,10 +328,22 @@ oses/distro/Debian/8.yaml
 
 ## Development
 
+### My dev envinronment
+
 This module was developed using
 
-- Puppet 4.10.1
-- Hiera 5
+- Puppet 4.10
+- Hiera v5
 - CentOS 7
 - Vagrant 1.9
   - box: gutocarvalho/centos7x64
+
+### Testing
+
+This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, beaker and travis-ci. We hope you use them before submitting your PR.
+
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix to test this class under Centos 6/7, Debian 7/8 and Ubuntu 14.04/16.04.
+
+### Author/Contributors
+
+Guto Carvalho (gutocarvalho at gmail dot com)
