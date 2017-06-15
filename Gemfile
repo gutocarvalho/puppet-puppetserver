@@ -14,3 +14,5 @@ gem "serverspec", "~> 2.39"
 gem "puppet-syntax", "~> 2.4"
 gem "puppet-lint", "~> 2.2"
 gem "metadata-json-lint", "~> 1.2"
+
+gem "puppet-strings", "~> 0.4"
