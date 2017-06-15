@@ -328,7 +328,7 @@ oses/distro/Debian/8.yaml
 
 ## Development
 
-### My dev envinronment
+### My dev environment
 
 This module was developed using
 
