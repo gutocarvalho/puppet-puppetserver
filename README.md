@@ -108,7 +108,7 @@ via puppet
 
 via puppetfile
 
-    mod 'gutocarvalho-puppetserver', '1.0.10'
+    mod 'gutocarvalho-puppetserver', '1.0.12'
 
 ## Usage
 
@@ -342,7 +342,44 @@ This module was developed using
 
 This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, beaker and travis-ci. We hope you use them before submitting your PR.
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix to test this class under Centos 6/7, Debian 7/8 and Ubuntu 14.04/16.04.
+#### Installing gems
+
+    gem install bundler --no-rdoc --no-ri
+    bundle install --without development
+
+#### Running syntax tests
+
+    bundle exec rake syntax
+    bundle exec rake lint
+    bundle exec rake metadata_lint
+
+#### Running unit tests
+
+   bundle exec rake spec
+
+#### Running acceptance tests
+
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/6 to test this class under Centos 6/7, Debian 7/8 and Ubuntu 14.04/16.04.
+
+If you want a detailed output, set this before run acceptance.sh
+
+    export BEAKER_debug=true
+
+If you want to test a specific OS from our matrix
+
+    BEAKER_set=centos-5-x64 bundle exec rake beaker
+
+Our matrix values
+
+    centos-5-x64
+    centos-6-x64
+    centos-7-x64
+    debian-7-x64
+    debian-8-x64
+    ubuntu-1404-x64
+    ubuntu-1604-x64
+
+This matrix needs vagrant (>=1.9) and virtualbox (>=5.1) to work properly, make sure that you have both of them installed.
 
 ### Author/Contributors
 
