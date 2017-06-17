@@ -2,6 +2,6 @@
 
 - Add git hooks pre-commit with linters from puppet training vm
 - Add Serverspec tests
-- Add Beaker tests
-- Add 'Release Notes' file
-- Add Contributors file
+- Add Changelog file
+- Add parameter to set the number of jruby's of a puppetserver JVM
+- Create a new context with puppetdb=>true on the beaker tests
