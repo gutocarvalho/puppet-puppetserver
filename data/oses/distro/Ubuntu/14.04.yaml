@@ -1,1 +1,1 @@
-puppetserver::agent_version: '1.10.2-1trusty'
+puppetserver::agent_version: '1.10.3-1trusty'

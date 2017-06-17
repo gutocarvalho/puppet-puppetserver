@@ -1,4 +1,4 @@
-# Puppetserver calss.
+# Puppetserver class.
 #
 # This is a class to install and manage Puppetserver:
 #
