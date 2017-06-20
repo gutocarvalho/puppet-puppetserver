@@ -51,7 +51,7 @@ You should configure your /etc/hosts properly.
 ### Requirements
 
 - Puppet >= 4.10
-- Hiera >= 5
+- Hiera >= 3.3 (v5 format)
 
 Unfortunately I intent to use Hiera v5 from start, so, yes, Hiera v3 is not compatible with this module.
 
@@ -108,7 +108,7 @@ via puppet
 
 via puppetfile
 
-    mod 'gutocarvalho-puppetserver', '1.0.12'
+    mod 'gutocarvalho-puppetserver', '1.0.13'
 
 ## Usage
 
@@ -122,14 +122,14 @@ via puppetfile
 
 ```
 class { 'puppetserver':
-  certname           => $trusted[certname],
+  certname           => $trusted['certname'],
   version            => '2.7.2-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.2-1.el7',
+  agent_version      => '1.10.4-1.el7',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el7'
-  puppetdb_server    => $trusted[certname],
+  puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
 }
@@ -139,14 +139,14 @@ class { 'puppetserver':
 
 ```
 class { 'puppetserver':
-  certname           => $trusted[certname],
+  certname           => $trusted['certname'],
   version            => '2.7.2-1.el6',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.2-1.el6',
+  agent_version      => '1.10.4-1.el6',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el6'
-  puppetdb_server    => $trusted[certname],
+  puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
 }
@@ -156,14 +156,14 @@ class { 'puppetserver':
 
 ```
 class { 'puppetserver':
-  certname           => $trusted[certname],
+  certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.2-1trusty',
+  agent_version      => '1.10.4-1trusty',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
-  puppetdb_server    => $trusted[certname],
+  puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
@@ -173,14 +173,14 @@ class { 'puppetserver':
 
 ```
 class { 'puppetserver':
-  certname           => $trusted[certname],
+  certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.2-1xenial',
+  agent_version      => '1.10.4-1xenial',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
-  puppetdb_server    => $trusted[certname],
+  puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
@@ -190,14 +190,14 @@ class { 'puppetserver':
 
 ```
 class { 'puppetserver':
-  certname           => $trusted[certname],
+  certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
   agent_version      => '1.10.2-1wheezy',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
-  puppetdb_server    => $trusted[certname],
+  puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
@@ -207,11 +207,11 @@ class { 'puppetserver':
 
 ```
 class { 'puppetserver':
-  certname           => $trusted[certname],
+  certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
-  agent_version      => '1.10.2-1jessie',
+  agent_version      => '1.10.4-1jessie',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
   puppetdb_server    => $trusted[certname],
@@ -237,41 +237,61 @@ puppetserver::service (private)
 
 Type: String
 
+Certificate name for the agent.
+
 #### `version`
 
 Type: String
+
+The puppet server package version. (2.7.2-1puppetlabs1|installed|latest)
 
 #### `autosign`
 
 Type: Boolean
 
+If true puppet server will sign every certificate request.
+
 #### `java_args`
 
 Type: String
+
+Configuration for the puppetserver JVM.
 
 #### `agent_version`
 
 Type: String
 
+The puppet agent package version (1.10.4-1xenial|installed|latest)
+
 #### `puppetdb`
 
 Type: Boolean
+
+If true it will config puppetdb integration.
 
 #### `puppetdb_version`
 
 Type: String
 
+The puppetdb package version. (4.4.0-1puppetlabs1|installed|latest)
+
 #### `puppetdb_server`
 
 Type: String
+
+The puppetdb server address (FQDN).
 
 #### `puppetdb_port`
 
 Type: Integer
 
+The puppetdb port number (8081).
+
 #### `system_config_path`
 
 Type: String
+
+Path for the default OS configuration for puppetserver package.
 
 ### Hiera Keys
 
@@ -287,7 +307,7 @@ puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2 -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/etc/sysconfig'
 
-puppetserver::agent_version: '1.10.1-1.el7'
+puppetserver::agent_version: '1.10.4-1.el7'
 ```
 
 ### Hiera module config
@@ -333,7 +353,7 @@ oses/distro/Debian/8.yaml
 This module was developed using
 
 - Puppet 4.10
-- Hiera v5
+- Hiera 3.3 (v5 format)
 - CentOS 7
 - Vagrant 1.9
   - box: gutocarvalho/centos7x64
