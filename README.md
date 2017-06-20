@@ -214,7 +214,7 @@ class { 'puppetserver':
   agent_version      => '1.10.4-1jessie',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
-  puppetdb_server    => $trusted[certname],
+  puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
