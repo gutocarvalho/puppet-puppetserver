@@ -108,7 +108,7 @@ via puppet
 
 via puppetfile
 
-    mod 'gutocarvalho-puppetserver', '1.0.13'
+    mod 'gutocarvalho-puppetserver', '1.0.12'
 
 ## Usage
 
