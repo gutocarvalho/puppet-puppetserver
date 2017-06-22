@@ -125,7 +125,7 @@ class { 'puppetserver':
   certname           => $trusted['certname'],
   version            => '2.7.2-1.el7',
   autosign           => true,
-  java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
+  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.4-1.el7',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el7'
@@ -142,7 +142,7 @@ class { 'puppetserver':
   certname           => $trusted['certname'],
   version            => '2.7.2-1.el6',
   autosign           => true,
-  java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
+  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.4-1.el6',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1.el6'
@@ -159,7 +159,7 @@ class { 'puppetserver':
   certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
-  java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
+  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.4-1trusty',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
@@ -176,7 +176,7 @@ class { 'puppetserver':
   certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
-  java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
+  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.4-1xenial',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
@@ -193,7 +193,7 @@ class { 'puppetserver':
   certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
-  java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
+  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.2-1wheezy',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
@@ -210,7 +210,7 @@ class { 'puppetserver':
   certname           => $trusted['certname'],
   version            => '2.7.2-1puppetlabs1',
   autosign           => true,
-  java_args          => '-Xms2g -Xmx2 -XX:MaxPermSize=256m',
+  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.4-1jessie',
   puppetdb           => true,
   puppetdb_version   => '4.4.0-1puppetlabs1'
@@ -237,13 +237,13 @@ puppetserver::service (private)
 
 Type: String
 
-Certificate name for the agent.
+Certificate name for the agent and server.
 
 #### `version`
 
 Type: String
 
-The puppet server package version. (2.7.2-1puppetlabs1|installed|latest)
+The puppet server package version. ( 2.7.2-1puppetlabs1 | installed | latest )
 
 #### `autosign`
 
@@ -261,7 +261,7 @@ Configuration for the puppetserver JVM.
 
 Type: String
 
-The puppet agent package version (1.10.4-1xenial|installed|latest)
+The puppet agent package version ( 1.10.4-1xenial | installed | latest )
 
 #### `puppetdb`
 
@@ -273,7 +273,7 @@ If true it will config puppetdb integration.
 
 Type: String
 
-The puppetdb package version. (4.4.0-1puppetlabs1|installed|latest)
+The puppetdb package version. ( 4.4.0-1puppetlabs1 | installed | latest )
 
 #### `puppetdb_server`
 
@@ -304,7 +304,7 @@ puppetserver::puppetdb_version: '4.4.0-1.el7'
 puppetserver::certname: "%{trusted.certname}"
 puppetserver::version: '2.7.2-1.el7'
 puppetserver::autosign: false
-puppetserver::java_args: '-Xms2g -Xmx2 -XX:MaxPermSize=256m'
+puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/etc/sysconfig'
 
 puppetserver::agent_version: '1.10.4-1.el7'
@@ -375,7 +375,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running unit tests
 
-   bundle exec rake spec
+    bundle exec rake spec
 
 #### Running acceptance tests
 
@@ -387,7 +387,7 @@ If you want a detailed output, set this before run acceptance.sh
 
 If you want to test a specific OS from our matrix
 
-    BEAKER_set=centos-5-x64 bundle exec rake beaker
+    BEAKER_set=centos-6-x64 bundle exec rake beaker
 
 Our matrix values
 
