@@ -5,4 +5,4 @@
 - Add Changelog file
 - Add parameter to set the number of jruby's of a puppetserver JVM
 - Create a new context with puppetdb=>true on the beaker tests
-- Create a parameter like puppetlabs/mysql override_defaults
+- Create a parameter server_config like puppetlabs/mysql/override_defaults
