@@ -1,9 +1,14 @@
 source 'https://rubygems.org'
 
+puppetversion = ENV.key?('PUPPET_VERSION') ? "= #{ENV['PUPPET_VERSION']}" : ['= 5.0.0']
+
 gem "rake", "~> 12.0"
 
-gem "puppet", "~> 4.10"
-gem "puppetlabs_spec_helper", "~> 2.1"
+gem 'puppet', puppetversion
+gem "puppetlabs_spec_helper", "~> 2.2"
+
+gem 'rspec', '>= 3.4.4'
+gem 'rspec-puppet', '>= 2.1.0'
 
 gem "beaker", "~> 3.17"
 gem "beaker-rspec", "~> 6.1"
