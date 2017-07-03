@@ -4,7 +4,7 @@ HOSTS:
       - agent
       - default
     platform: el-6-x86_64
-    box: puppetlabs/centos-6.6-64-nocm
+    box: gutocarvalho/centos6x64
     hypervisor: vagrant
     vagrant_memsize: 2600
 
