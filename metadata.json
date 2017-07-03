@@ -1,6 +1,6 @@
 {
      "name": "gutocarvalho-puppetserver",
-     "version": "1.0.12",
+     "version": "1.1.0",
      "author": "Guto Carvalho",
      "license": "Apache-2.0",
      "summary": "A simple Puppet module for puppetserver",
@@ -11,7 +11,7 @@
      "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">=4.5.0 < 5.0.0"
+      "version_requirement": ">=4.5.0 < 6.0.0"
     }
    ],
      "operatingsystem_support": [
@@ -25,13 +25,13 @@
        },
        {
        "operatingsystem": "Ubuntu",
-       "operatingsystemrelease": [ "14.04", "16.04" ]
+       "operatingsystemrelease": [ "16.04" ]
        },
        {
        "operatingsystem": "Debian",
-       "operatingsystemrelease": [ "7", "8" ]
+       "operatingsystemrelease": [ "8" ]
        }
       ],
-     "dependencies": [
-     ]
+    "dependencies": [
+    ]
    }

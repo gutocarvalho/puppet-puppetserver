@@ -14,7 +14,9 @@
 
 ## Overview
 
-This module will install the latest puppetserver in your system.
+This module will install the latest puppetserver 5 series in your system.
+
+**If you are looking into puppet 4 and puppetserver 2 please use an older version of this module.**
 
 This module can also configure puppetdb integration.
 
@@ -31,10 +33,25 @@ Augeas resource type is used to change parameters inside the puppet.conf.
 This module was tested under these platforms
 
 - CentOS 6 and 7
-- Debian 7 and 8
-- Ubuntu 14.04 and 16.04
+- Debian 8
+- Ubuntu 16.04
 
 Tested only in X86_64 arch.  
+
+#### Debian 8 notes
+
+You need to enable debian jessie backports and install jdk8 before use this module.
+
+```
+echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+apt-get update
+apt-get -y -t jessie-backports install "openjdk-8-jdk-headless"
+```
+In the future I will try to support this requirements inside the module, for now, you should do this before.
+
+You can try my debian8 box with jdk and backport enabled.
+
+- https://app.vagrantup.com/gutocarvalho/boxes/debian8x64
 
 ## Requirements
 
@@ -50,50 +67,8 @@ You should configure your /etc/hosts properly.
 
 ### Requirements
 
-- Puppet >= 4.10
-- Hiera >= 3.3 (v5 format)
-
-Unfortunately I intent to use Hiera v5 from start, so, yes, Hiera v3 is not compatible with this module.
-
-#### Upgrade your Puppet Agent
-
-Upgrade your puppet agent to >= 4.10, this is necessary to use Hiera v5 features.
-
-RedHat Family
-
-    # yum install puppet-agent
-
-Debian Family
-
-    # apt-get update
-    # apt-get install puppet-agent
-
-You need the PC1 repo configured to install puppet-agent.
-
-#### Upgrade your Hiera config
-
-You need to upgrade your hiera config, even with Puppet >= 4.10.
-
-    /etc/puppetlabs/puppet/hiera.yaml
-
-See the example bellow and upgrade your hiera config.
-
-```
-version: 5
-defaults:
-  datadir: data
-  data_hash: yaml_data
-hierarchy:
-  - name: "Per-node data (yaml version)"
-    path: "nodes/%{trusted.certname}.yaml" # Add file extension.
-
-  - name: "Other YAML hierarchy levels"
-    paths:
-      - "os/%{facts.os.family}.yaml"
-      - "common.yaml"
-```
-
-After that, you can use this module without problems.
+- Puppet >= 5.0.0
+- Hiera >= 3.4 (v5 format)
 
 ## Installation
 
@@ -108,7 +83,7 @@ via puppet
 
 via puppetfile
 
-    mod 'gutocarvalho-puppetserver', '1.0.12'
+    mod 'gutocarvalho-puppetserver', '1.1.0'
 
 ## Usage
 
@@ -123,12 +98,12 @@ via puppetfile
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '2.7.2-1.el7',
+  version            => '5.0.0-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '1.10.4-1.el7',
+  agent_version      => '5.0.0-1.el7',
   puppetdb           => true,
-  puppetdb_version   => '4.4.0-1.el7'
+  puppetdb_version   => '5.0.1-1.el7'
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
@@ -140,32 +115,15 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '2.7.2-1.el6',
+  version            => '5.0.0-1.el6',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '1.10.4-1.el6',
+  agent_version      => '5.0.0-1.el6',
   puppetdb           => true,
-  puppetdb_version   => '4.4.0-1.el6'
+  puppetdb_version   => '5.0.1-1.el7'
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
-}
-```
-
-#### Example in Ubuntu 14.04
-
-```
-class { 'puppetserver':
-  certname           => $trusted['certname'],
-  version            => '2.7.2-1puppetlabs1',
-  autosign           => true,
-  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '1.10.4-1trusty',
-  puppetdb           => true,
-  puppetdb_version   => '4.4.0-1puppetlabs1'
-  puppetdb_server    => $trusted['certname'],
-  puppetdb_port      => 8081,
-  system_config_path => '/etc/default'
 }
 ```
 
@@ -174,29 +132,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '2.7.2-1puppetlabs1',
+  version            => '5.0.0-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.4-1xenial',
   puppetdb           => true,
-  puppetdb_version   => '4.4.0-1puppetlabs1'
-  puppetdb_server    => $trusted['certname'],
-  puppetdb_port      => 8081,
-  system_config_path => '/etc/default'
-}
-```
-
-#### Example in Debian 7
-
-```
-class { 'puppetserver':
-  certname           => $trusted['certname'],
-  version            => '2.7.2-1puppetlabs1',
-  autosign           => true,
-  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '1.10.2-1wheezy',
-  puppetdb           => true,
-  puppetdb_version   => '4.4.0-1puppetlabs1'
+  puppetdb_version   => '5.0.1-1puppetlabs1'
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -208,12 +149,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '2.7.2-1puppetlabs1',
+  version            => '5.0.0-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   agent_version      => '1.10.4-1jessie',
   puppetdb           => true,
-  puppetdb_version   => '4.4.0-1puppetlabs1'
+  puppetdb_version   => '5.0.1-1puppetlabs1'
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -243,7 +184,7 @@ Certificate name for the agent and server.
 
 Type: String
 
-The puppet server package version. ( 2.7.2-1puppetlabs1 | installed | latest )
+The puppet server package version. ( 5.0.0-1puppetlabs1 | installed | latest )
 
 #### `autosign`
 
@@ -261,7 +202,7 @@ Configuration for the puppetserver JVM.
 
 Type: String
 
-The puppet agent package version ( 1.10.4-1xenial | installed | latest )
+The puppet agent package version ( 5.0.0-1.el7 | installed | latest )
 
 #### `puppetdb`
 
@@ -273,7 +214,7 @@ If true it will config puppetdb integration.
 
 Type: String
 
-The puppetdb package version. ( 4.4.0-1puppetlabs1 | installed | latest )
+The puppetdb package version. ( 5.0.1-1puppetlabs1 | installed | latest )
 
 #### `puppetdb_server`
 
@@ -299,15 +240,15 @@ Path for the default OS configuration for puppetserver package.
 puppetserver::puppetdb: false
 puppetserver::puppetdb_server: "%{::ipaddress}"
 puppetserver::puppetdb_port: 8081
-puppetserver::puppetdb_version: '4.4.0-1.el7'
+puppetserver::puppetdb_version: '5.0.1-1.el7'
 
 puppetserver::certname: "%{trusted.certname}"
-puppetserver::version: '2.7.2-1.el7'
+puppetserver::version: '5.0.0-1.el7'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/etc/sysconfig'
 
-puppetserver::agent_version: '1.10.4-1.el7'
+puppetserver::agent_version: '5.0.0-1.el7'
 ```
 
 ### Hiera module config
@@ -339,10 +280,8 @@ This is an example of files under modules/puppetserver/data
 oses/family/RedHat.yaml
 oses/family/Debian.yaml
 oses/distro/CentOS/7.yaml
-oses/distro/CentOS/8.yaml
-oses/distro/Ubuntu/14.04.yaml
+oses/distro/CentOS/6.yaml
 oses/distro/Ubuntu/16.04.yaml
-oses/distro/Debian/7.yaml
 oses/distro/Debian/8.yaml
 ```
 
@@ -352,8 +291,8 @@ oses/distro/Debian/8.yaml
 
 This module was developed using
 
-- Puppet 4.10
-- Hiera 3.3 (v5 format)
+- Puppet 5.0
+- Hiera 3.4 (v5 format)
 - CentOS 7
 - Vagrant 1.9
   - box: gutocarvalho/centos7x64
@@ -379,7 +318,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running acceptance tests
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/6 to test this class under Centos 6/7, Debian 7/8 and Ubuntu 14.04/16.04.
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/5 to test this class under Centos 6/7, Debian 8 and Ubuntu 14.04/16.04.
 
 If you want a detailed output, set this before run acceptance.sh
 
@@ -391,12 +330,9 @@ If you want to test a specific OS from our matrix
 
 Our matrix values
 
-    centos-5-x64
     centos-6-x64
     centos-7-x64
-    debian-7-x64
     debian-8-x64
-    ubuntu-1404-x64
     ubuntu-1604-x64
 
 This matrix needs vagrant (>=1.9) and virtualbox (>=5.1) to work properly, make sure that you have both of them installed.
