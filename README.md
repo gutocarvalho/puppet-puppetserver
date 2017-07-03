@@ -16,7 +16,7 @@
 
 This module will install the latest puppetserver 5 series in your system.
 
-*If you are looking into puppet4 and puppetserver 2.3x please use an older version of this module.*
+**If you are looking into puppet 4 and puppetserver 2 please use an older version of this module.**
 
 This module can also configure puppetdb integration.
 
@@ -38,7 +38,7 @@ This module was tested under these platforms
 
 Tested only in X86_64 arch.  
 
-### Debian 8 notes
+#### Debian 8 notes
 
 You need to enable debian jessie backports and install jdk8 before use this module.
 
@@ -48,6 +48,10 @@ apt-get update
 apt-get -y -t jessie-backports install "openjdk-8-jdk-headless"
 ```
 In the future I will try to support this requirements inside the module, for now, you should do this before.
+
+You can try my debian8 box with jdk and backport enabled.
+
+- https://app.vagrantup.com/gutocarvalho/boxes/debian8x64
 
 ## Requirements
 
@@ -314,7 +318,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running acceptance tests
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/6 to test this class under Centos 6/7, Debian 7/8 and Ubuntu 14.04/16.04.
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/5 to test this class under Centos 6/7, Debian 8 and Ubuntu 14.04/16.04.
 
 If you want a detailed output, set this before run acceptance.sh
 
