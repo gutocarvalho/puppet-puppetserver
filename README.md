@@ -98,12 +98,12 @@ via puppetfile
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.0.0-1.el7',
+  version            => '5.1.0-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.0.0-1.el7',
+  agent_version      => '5.2.0-1.el7',
   puppetdb           => true,
-  puppetdb_version   => '5.0.1-1.el7'
+  puppetdb_version   => '5.1.0-1.el7',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
@@ -115,12 +115,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.0.0-1.el6',
+  version            => '5.1.0-1.el6',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.0.0-1.el6',
+  agent_version      => '5.2.0-1.el6',
   puppetdb           => true,
-  puppetdb_version   => '5.0.1-1.el7'
+  puppetdb_version   => '5.1.0-1.el6',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
@@ -132,12 +132,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.0.0-1puppetlabs1',
+  version            => '5.1.0-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '1.10.4-1xenial',
+  agent_version      => '5.2.0-1xenial',
   puppetdb           => true,
-  puppetdb_version   => '5.0.1-1puppetlabs1'
+  puppetdb_version   => '5.1.0-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -149,12 +149,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.0.0-1puppetlabs1',
+  version            => '5.1.0-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '1.10.4-1jessie',
+  agent_version      => '5.2.0-1jessie',
   puppetdb           => true,
-  puppetdb_version   => '5.0.1-1puppetlabs1'
+  puppetdb_version   => '5.1.0-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -184,7 +184,7 @@ Certificate name for the agent and server.
 
 Type: String
 
-The puppet server package version. ( 5.0.0-1puppetlabs1 | installed | latest )
+The puppet server package version. ( 5.1.0-1puppetlabs1 | installed | latest )
 
 #### `autosign`
 
@@ -202,7 +202,7 @@ Configuration for the puppetserver JVM.
 
 Type: String
 
-The puppet agent package version ( 5.0.0-1.el7 | installed | latest )
+The puppet agent package version ( 5.2.0-1.el7 | installed | latest )
 
 #### `puppetdb`
 
@@ -214,7 +214,7 @@ If true it will config puppetdb integration.
 
 Type: String
 
-The puppetdb package version. ( 5.0.1-1puppetlabs1 | installed | latest )
+The puppetdb package version. ( 5.1.0-1puppetlabs1 | installed | latest )
 
 #### `puppetdb_server`
 
@@ -240,15 +240,15 @@ Path for the default OS configuration for puppetserver package.
 puppetserver::puppetdb: false
 puppetserver::puppetdb_server: "%{::ipaddress}"
 puppetserver::puppetdb_port: 8081
-puppetserver::puppetdb_version: '5.0.1-1.el7'
+puppetserver::puppetdb_version: '5.1.0-1.el7'
 
 puppetserver::certname: "%{trusted.certname}"
-puppetserver::version: '5.0.0-1.el7'
+puppetserver::version: '5.1.0-1.el7'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/etc/sysconfig'
 
-puppetserver::agent_version: '5.0.0-1.el7'
+puppetserver::agent_version: '5.2.0-1.el7'
 ```
 
 ### Hiera module config
@@ -291,11 +291,12 @@ oses/distro/Debian/8.yaml
 
 This module was developed using
 
-- Puppet 5.0
-- Hiera 3.4 (v5 format)
+- Puppet 5.2
+  - Hiera 3.4 (v5 format)
+  - Facter 3.9
 - CentOS 7
-- Vagrant 1.9
-  - box: gutocarvalho/centos7x64
+- Vagrant 2.0
+  - box: gutocarvalho/centos7x64puppet5
 
 ### Testing
 
@@ -319,6 +320,8 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 #### Running acceptance tests
 
 Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/5 to test this class under Centos 6/7, Debian 8 and Ubuntu 14.04/16.04.
+
+    bash ./acceptance.sh
 
 If you want a detailed output, set this before run acceptance.sh
 
