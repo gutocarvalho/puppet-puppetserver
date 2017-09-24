@@ -4,7 +4,7 @@ HOSTS:
       - agent
       - default
     platform: ubuntu-16.04-amd64
-    box: gutocarvalho/ubuntu1604x64
+    box: gutocarvalho/ubuntu1604x64puppet5
     hypervisor: vagrant
     vagrant_memsize: 2600
 
