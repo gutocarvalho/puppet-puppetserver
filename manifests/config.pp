@@ -13,7 +13,7 @@ class puppetserver::config {
 
   augeas {'java_args':
     context => "${puppetserver::system_config_path}/puppetserver",
-    changes => [ "set JAVA_ARGS ${puppetserver::java_args}", ],
+    changes => [ "set JAVA_ARGS '\"${puppetserver::java_args}\"'", ],
     notify  => Service['puppetserver']
   }
 
