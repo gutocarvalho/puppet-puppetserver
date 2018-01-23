@@ -83,7 +83,7 @@ via puppet
 
 via puppetfile
 
-    mod 'gutocarvalho-puppetserver', '1.1.0'
+    mod 'gutocarvalho-puppetserver', '1.3.0'
 
 ## Usage
 
@@ -98,12 +98,12 @@ via puppetfile
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.0-1.el7',
+  version            => '5.1.4-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.2.0-1.el7',
+  agent_version      => '5.3.3-1.el7',
   puppetdb           => true,
-  puppetdb_version   => '5.1.0-1.el7',
+  puppetdb_version   => '5.1.3-1.el7',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
@@ -115,12 +115,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.0-1.el6',
+  version            => '5.1.4-1.el6',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.2.0-1.el6',
+  agent_version      => '5.3.3-1.el6',
   puppetdb           => true,
-  puppetdb_version   => '5.1.0-1.el6',
+  puppetdb_version   => '5.1.3-1.el6',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
@@ -132,12 +132,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.0-1puppetlabs1',
+  version            => '5.1.4-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.2.0-1xenial',
+  agent_version      => '5.3.3-1xenial',
   puppetdb           => true,
-  puppetdb_version   => '5.1.0-1puppetlabs1',
+  puppetdb_version   => '5.1.3-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -149,12 +149,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.0-1puppetlabs1',
+  version            => '5.1.4-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.2.0-1jessie',
+  agent_version      => '5.3.3-1jessie',
   puppetdb           => true,
-  puppetdb_version   => '5.1.0-1puppetlabs1',
+  puppetdb_version   => '5.1.3-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -184,7 +184,7 @@ Certificate name for the agent and server.
 
 Type: String
 
-The puppet server package version. ( 5.1.0-1puppetlabs1 | installed | latest )
+The puppet server package version. ( 5.1.4-1puppetlabs1 | installed | latest )
 
 #### `autosign`
 
@@ -202,7 +202,7 @@ Configuration for the puppetserver JVM.
 
 Type: String
 
-The puppet agent package version ( 5.2.0-1.el7 | installed | latest )
+The puppet agent package version ( 5.3.3-1.el7 | installed | latest )
 
 #### `puppetdb`
 
@@ -214,7 +214,7 @@ If true it will config puppetdb integration.
 
 Type: String
 
-The puppetdb package version. ( 5.1.0-1puppetlabs1 | installed | latest )
+The puppetdb package version. ( 5.1.3-1puppetlabs1 | installed | latest )
 
 #### `puppetdb_server`
 
@@ -240,15 +240,15 @@ Path for the default OS configuration for puppetserver package.
 puppetserver::puppetdb: false
 puppetserver::puppetdb_server: "%{::ipaddress}"
 puppetserver::puppetdb_port: 8081
-puppetserver::puppetdb_version: '5.1.0-1.el7'
+puppetserver::puppetdb_version: '5.1.3-1.el7'
 
 puppetserver::certname: "%{trusted.certname}"
-puppetserver::version: '5.1.0-1.el7'
+puppetserver::version: '5.1.4-1.el7'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/etc/sysconfig'
 
-puppetserver::agent_version: '5.2.0-1.el7'
+puppetserver::agent_version: '5.3.3-1.el7'
 ```
 
 ### Hiera module config
@@ -291,11 +291,11 @@ oses/distro/Debian/8.yaml
 
 This module was developed using
 
-- Puppet 5.2
+- Puppet 5.3
   - Hiera 3.4 (v5 format)
-  - Facter 3.9
-- CentOS 7
-- Vagrant 2.0
+  - Facter 2.5
+- CentOS 7.4
+- Vagrant 2.0.1
   - box: gutocarvalho/centos7x64puppet5
 
 ### Testing
