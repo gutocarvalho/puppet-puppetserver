@@ -83,7 +83,7 @@ via puppet
 
 via puppetfile
 
-    mod 'gutocarvalho-puppetserver', '1.3.0'
+    mod 'gutocarvalho-puppetserver', '1.3.2'
 
 ## Usage
 
