@@ -1,1 +1,1 @@
-puppetserver::agent_version: '5.2.0-1jessie'
+puppetserver::agent_version: '5.3.3-1jessie'

@@ -1,3 +1,3 @@
-puppetserver::version: '5.1.0-1.el7'
-puppetserver::agent_version: '5.2.0-1.el7'
-puppetserver::puppetdb_version: '5.1.0-1.el7'
+puppetserver::version: '5.1.4-1.el7'
+puppetserver::agent_version: '5.3.3-1.el7'
+puppetserver::puppetdb_version: '5.1.3-1.el7'
