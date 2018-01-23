@@ -1,1 +1,3 @@
 puppetserver::agent_version: '5.3.3-1jessie'
+puppetserver::version: '5.1.4-1jessie'
+puppetserver::puppetdb_version: '5.1.3-1jessie'
