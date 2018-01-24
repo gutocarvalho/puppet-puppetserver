@@ -9,6 +9,7 @@ gem "puppetlabs_spec_helper"
 
 gem 'rspec'
 gem 'rspec-puppet'
+gem 'rspec-puppet-facts'
 
 gem "beaker"
 gem "beaker-rspec"
